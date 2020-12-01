@@ -1,11 +1,13 @@
 /******************************************************************************
  * Konfigurační soubor user.js pro Mozilla Firefox
  * 
- * Výchozí nastavení webového prohlížeče s důrazem na soukromí. 
+ * Výchozí nastavení webového prohlížeče s důrazem na soukromí. Níže uvedené
+ * nastavení je dobré kombinovat s rozšířeními uvedenými v dokumentu na 
+ * adrese https://github.com/JasnaPaka/user.js
  * 
  * Autor: Pavel Cvrček <jasnapaka@jasnapaka.com>
  * 
- * Poslední aktualizace: 2020-11-11
+ * Poslední aktualizace: 2020-12-01
  * 
 ******************************************************************************/
 
@@ -41,10 +43,6 @@ user_pref("privacy.resistFingerprinting", true);
 
 // Ochrana soukromí na úroveň 'přísná'.
 user_pref("browser.contentblocking.category", "strict");
-
-// Zakázání WebGL. Důvod viz 
-// https://www.contextis.com/en/blog/webgl-a-new-dimension-for-browser-exploitation
-user_pref("webgl.disabled", true);
 
 // Zakázání WebRTC. Důvod viz
 // https://restoreprivacy.com/webrtc-leaks/
@@ -91,6 +89,10 @@ user_pref("browser.safebrowsing.malware.enabled", false);
 
 // Zakázání "speculative pre-connections"
 user_pref("network.http.speculative-parallel-limit", 0);
+
+// DNS over HTTPS
+user_pref("network.trr.mode", 2);
+user_pref("network.trr.custom_uri", "https://odvr.nic.cz/doh");
  
 /******************************************************************************
  * Ostatní                                                                    *
